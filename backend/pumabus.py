@@ -260,25 +260,3 @@ def construir_grafo_pumabus():
     g.agregarArista("Psicología", "Facultad de Filosofía", 0.8)
     g.agregarArista("Facultad de Filosofía", "Metrobús CU", 2.6)
     return g
-
-# MAIN 
-if __name__ == "__main__":
-    grafo = construir_grafo_pumabus()
-
-    print("Sistema de Rutas Pumabús")
-    print("Paradas disponibles:")
-    for nodo in grafo.list_adj:
-        print(" -", nodo)
-
-    print("\nEjemplo de consulta:")
-    inicio = "Metro CU"
-    destino = "Ingeniería"
-
-    distancia, ruta = dijkstra(grafo, inicio, destino)
-
-    if ruta:
-        print(f"\nRuta más corta de {inicio} a {destino}:")
-        print(" → ".join(ruta))
-        print("Distancia total:", distancia)
-    else:
-        print(f"\nNo existe ruta entre {inicio} y {destino}.")
